@@ -8,7 +8,10 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.util.ArrayList;
+
 
 public class GuestBook implements ActionListener{
 	Frame frame = new Frame();
@@ -17,9 +20,11 @@ public class GuestBook implements ActionListener{
 	JLabel label2 = new JLabel();
 	JButton button1 = new JButton();
 	JButton button2 = new JButton();
+	String newName = new String();
+	ArrayList<String> NamesList = new ArrayList<String>();
 	public static void main(String[]args){
 		GuestBook book = new GuestBook();
-		
+	
 	}
 	
 	GuestBook(){
@@ -32,6 +37,8 @@ public class GuestBook implements ActionListener{
 	panel.add(button2);
 	frame.setSize(800, 500);
 	frame.setVisible(true);
+	button1.addActionListener(this);
+	button2.addActionListener(this);
 	
 
 	
@@ -47,7 +54,23 @@ public class GuestBook implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+
+			
+			
+		if(e.getSource()==button1) {
+			newName = JOptionPane.showInputDialog("Add your name");
+			NamesList.add(newName);
+		}
+		if(e.getSource()==button2) {
+				
+				String output = "";
+				for(int i = 0; i < NamesList.size(); i++){
+					output+=  "Guest #" + ( i +1 ) + NamesList.get(i);
+					
+					
+				}
+				JOptionPane.showMessageDialog( null, " " + output);
+		}
 		
 	}
 
