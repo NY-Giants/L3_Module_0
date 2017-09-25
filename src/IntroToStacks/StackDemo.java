@@ -3,6 +3,7 @@ package IntroToStacks;
 import java.util.Stack;
 
 public class StackDemo {
+	
 	public static void main(String[] args) {
 		//Stack of Strings
 		System.out.println("Here is a Stack of Strings: \n");
