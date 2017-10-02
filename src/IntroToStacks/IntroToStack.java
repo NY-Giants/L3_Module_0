@@ -16,16 +16,17 @@ public class IntroToStack {
 	}
 		//2. Use a loop to push 100 random doubles between 0 and 100 to the Stack.
 		IntroToStack(){
-			for(int i = 0; i < 100; i++){
+			
+			newnum = JOptionPane.showInputDialog("Enter a number between 0 and 100");
+			newnum = JOptionPane.showInputDialog("Enter a number between 0 and 100");
+			for(int i = 0; i < 10000; i++){
 				numbers.push(randy.nextDouble());
+				
 				System.out.println(numbers.pop());
 				
+				
 			}	
-			JOptionPane.showInputDialog("Enter two number between 0 and 100");
-	
-			if(newnum  == JOptionPane.showInputDialog("Enter a number between 0 and 100") ) {
-				System.out.println(newnum);
-			}
+
 		}
 		//3. Ask the user to enter in two numbers between 0 and 100, inclusive. 
 			
