@@ -3,15 +3,16 @@ package IntroToHashMaps;
 import java.util.HashMap;
 
 public class IntroToHashMaps {
+	HashMap<Integer, Double> rwi = new HashMap<Integer, Double>();
 	public static void main(String[]args) {
-		HashMap<Integer, String> rootswithIntegers = new HashMap<Integer, String>();
+		IntroToHashMaps ithm = new IntroToHashMaps();
 	}
 	IntroToHashMaps(){
 		for(int i = 0; i < 500; i++){
-			
-			
-			
+			rwi.put(i, Math.sqrt(i));
+			System.out.println("The square Root of " + i +" is "+ Math.sqrt(i) ); 
 		}	
+	
 	}
 	//1. Create a HashMap called roots with Integers for the keys and Doubles for the values.
 	

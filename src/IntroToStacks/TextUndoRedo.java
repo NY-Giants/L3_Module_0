@@ -8,11 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import java.util.Stack;
+
 public class TextUndoRedo implements KeyListener{
 JFrame frame;
 JPanel panel;
 JLabel label;
 Character keyletter;
+Stack<Character> chariZURD = new Stack<Character>();
 public static void main(String []args) {
 	TextUndoRedo tur = new TextUndoRedo();
 }
@@ -33,9 +36,25 @@ public void keyTyped(KeyEvent e) {
 public void keyPressed(KeyEvent e) {
 	keyletter = e.getKeyChar();
 
-		label.setText(label.getText() + keyletter);
+		
 	
+		if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE) {
+			String backspace = label.getText();
+			chariZURD.push(backspace.charAt(backspace.length()-1));
+			label.setText(backspace.substring(0,backspace.length()-1));
+		}
+		
+		else if(e.getKeyCode()==KeyEvent.VK_SHIFT) {
+			
+			char dumptruck = chariZURD.pop();
+			label.setText(label.getText() + dumptruck);
+			
+		}
+		else {
+			label.setText(label.getText() + keyletter);
+		}
 }
+	
 public void keyReleased(KeyEvent e) {
 	
 	
