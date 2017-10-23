@@ -1,6 +1,38 @@
 package IntroToHashMaps;
 
-public class LogSearch {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+public class LogSearch implements ActionListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton b1 = new JButton("Add Entry");
+	JButton b2 = new JButton("Search by ID");
+	JButton b3 = new JButton("View List");
+	String AddID;
+	String AddName;
+	String SearchID;
+	HashMap<Integer, String> rwi = new HashMap<Integer, String>();
+	public static void main(String[]args) {
+		LogSearch ls = new LogSearch();
+	}
+	LogSearch(){
+		frame.add(panel);
+		panel.add(b1);
+		panel.add(b2);
+		panel.add(b3);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		frame.setVisible(true);
+		frame.setSize(800, 500);
+		}	
   /* 
 	 * Crate a HashMap of Integers for the keys and Strings for the values.
 	 * Create a GUI with three buttons. 
@@ -28,4 +60,24 @@ public class LogSearch {
 	 * 				is not in the list. 
 	 *
 	 * */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	if(e.getSource()==b1) {
+		AddID = JOptionPane.showInputDialog("Add an ID Number");
+		AddName = JOptionPane.showInputDialog("Add a name");	
+		Integer ae = Integer.parseInt(AddID);
+		rwi.put(ae, AddName);
+	}
+	if(e.getSource()==b2) {
+		
+	SearchID = JOptionPane.showInputDialog("Find an ID Number");
+	Integer si = Integer.parseInt(SearchID);
+	JOptionPane.showMessageDialog(null, rwi.get(si));
+	}
+	if(e.getSource()==b3) {
+		for(String s : rwi.values()){
+			JOptionPane.showMessageDialog(null, " ID " + AddID + ":  "+ s);
+		}
+	}
+	}
 }
