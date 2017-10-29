@@ -75,9 +75,12 @@ public class LogSearch implements ActionListener {
 	JOptionPane.showMessageDialog(null, rwi.get(si));
 	}
 	if(e.getSource()==b3) {
-		for(String s : rwi.values()){
-			JOptionPane.showMessageDialog(null, " ID " + AddID + ":  "+ s);
+		String a = " ";
+		for(Integer s :  rwi.keySet()){
+			a += " ID " + s + ": " + rwi.get(s) +"\n";
+			
 		}
+		JOptionPane.showMessageDialog(null, a );
 	}
 	}
 }
